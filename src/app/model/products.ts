@@ -9,5 +9,4 @@ export interface Product{
     status: boolean;
     creationDate: Date;
     deleteDate: Date;
-    
 }
