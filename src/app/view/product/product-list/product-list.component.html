@@ -1,12 +1,12 @@
-<div class="bg-slate-900">
+<div class="table-component">
     <h1>Lista de productos con precio</h1>
     <mat-form-field>
         <mat-label>Buscar</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Producto" #input>
     </mat-form-field>
-    <!-- <button mat-fab (click)="openDialog()"><mat-icon>add</mat-icon></button> -->
+    <button mat-fab (click)="opendDialog()"><mat-icon>add</mat-icon></button>
 
-    <table mat-table [dataSource]="productList" class="mat-elevation-z8 ">
+    <table mat-table [dataSource]="productList" class="table">
 
         <!-- Position Column -->
         <ng-container matColumnDef="date">
@@ -39,7 +39,7 @@
         <ng-container matColumnDef="opciones">
             <th mat-header-cell *matHeaderCellDef> Acciones </th>
             <td mat-cell *matCellDef="let element">
-                <!-- <button mat-icon-button (click)="editDialog(element)" ><mat-icon>edit</mat-icon></button> -->
+                <button mat-icon-button (click)="editDialog(element)" ><mat-icon>edit</mat-icon></button>
                 <button mat-icon-button><mat-icon>delete</mat-icon></button>
             </td>
         </ng-container>
