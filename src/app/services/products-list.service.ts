@@ -15,8 +15,11 @@ export class ProductsListService {
   getProducts():Observable<Product[]>{
     return this.http.get<Product[]>(this.url)
   }
+  editProducts(product:any):Observable<Product[]>{
+    return this.http.put<Product>(this.url,product)
+  }
   addProduct(product:Product):Observable<Product>{
-    return this.http.post<Product>(this.url,{product})
+    return this.http.post<Product>(this.url,product)
   }
   deleteProduct(id:string):Observable<Product>{
     return this.http.delete<Product>(this.url+'/'+id)

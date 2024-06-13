@@ -47,21 +47,46 @@ export class ProductFormComponent implements OnInit {
     }
   }
 
+  save(): void{
+    let request={
+      id:this.data!=null?this.data.id:null,
+      name:this.formGroup.value.name,
+      code:this.formGroup.value.code,
+      category:this.formGroup.value.category,
+      price:this.formGroup.value.price,
+      amount:this.formGroup.value.amount,
+      description:this.formGroup.value.description
+
+    }
+    try{
+      if(!this.data){
+        this.productService.addProduct(request).subscribe(item=>console.log(item))
+      }else{
+        this.productService.editProducts(request).subscribe(item=>console.log(item))
+      }
+      this.dialogRef.close(true) //cerrar modal
+    } catch(error){
+      console.log(error);
+    }
+
+  }
+
   onSubmit() {
     if (this.formGroup.valid) {
-       const product: Product = this.formGroup.value;
-       console.log(product)
-      this.productService.addProduct(product)
-        .subscribe({
-          next: (result) => {
-            console.log('Producto registrado de manera exitosa:', result);
-            this.dialogRef.close(result); // Cerrar el diálogo después de agregar el producto
-          },
-          error: (err) => {
-            console.error('Hubo un error al agregar producto:', err);
-            // Aquí puedes manejar el error de forma adecuada, por ejemplo, mostrar un mensaje al usuario
-          }
-        });
+        const product: Product = this.formGroup.value;
+      //  console.log(product)
+      // this.productService.addProduct(product)
+      //   .subscribe({
+      //     next: (result) => {
+             console.log('Producto registrado de manera exitosa:', product);
+      //       console.log('Producto registrado de manera exitosa:', result);
+      //       this.dialogRef.close(result); // Cerrar el diálogo después de agregar el producto
+      //     },
+      //     error: (err) => {
+      //       console.error('Hubo un error al agregar producto:', err);
+      //       // Aquí puedes manejar el error de forma adecuada, por ejemplo, mostrar un mensaje al usuario
+      //     }
+      //   });
     } else {
       console.log('El formulario no es válido o el estado no está seleccionado.');
     }

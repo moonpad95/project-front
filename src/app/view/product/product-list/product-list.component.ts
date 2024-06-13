@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Product } from 'src/app/model/products';
 import { ProductsListService } from 'src/app/services/products-list.service';
 import { ProductFormComponent } from '../product-form/product-form.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-list',
@@ -67,4 +68,21 @@ export class ProductListComponent implements OnInit {
     })
   }
 
+  deleteDialog(element: Product){
+          // Confirmación con mensaje y acciones
+      Swal.fire({
+        title: `Estas seguro que deseas eliminar el registro`,
+        text: 'No podras recuperarlo posterior a su eliminacion',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Eliminar!',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Eliminado!', 'El registro fue correctamente eliminado', 'success');
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          Swal.fire('Cancelado', 'El registro no fue eliminado', 'info');
+        }
+      });
+        }
 }
