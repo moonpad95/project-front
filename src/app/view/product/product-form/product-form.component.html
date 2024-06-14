@@ -52,7 +52,7 @@
           <mat-error *ngIf="formGroup.get('code')?.invalid">Es estrictamente necesario agregar el codigo</mat-error>
         </mat-form-field>  
     <mat-dialog-actions>
-    <button mat-raised-button [disabled]="formGroup.invalid" (click)="onSubmit()">Guardar</button>
+    <button mat-raised-button [disabled]="formGroup.invalid" (click)="save()">Guardar</button>
     <button mat-raised-button color="warn" mat-dialog-close="true">Cancelar</button>
 </mat-dialog-actions>
       </form>
