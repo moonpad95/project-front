@@ -20,6 +20,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProductFormComponent } from './view/product/product-form/product-form.component';
+import { UsersComponent } from './view/users/users.component';
+import { UsersListComponent } from './view/users-list/users-list.component';
+import { LoginComponent } from './view/login/login.component';
 
 
 @NgModule({
@@ -27,6 +30,9 @@ import { ProductFormComponent } from './view/product/product-form/product-form.c
     AppComponent,
     ProductListComponent,
     ProductFormComponent,
+    UsersComponent,
+    UsersListComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

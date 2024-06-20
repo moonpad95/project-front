@@ -1,0 +1,72 @@
+<h2 mat-dialog-title *ngIf="!data">Agregar Usuario</h2>
+<h2 mat-dialog-title *ngIf="data">Editar Usuario</h2>
+<mat-dialog-content>
+  <div mat-dialog-content>
+    <form [formGroup]="formGroup">
+      <h4>Datos de acceso</h4>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre de Usuario</mat-label>
+        <input matInput formControlName="username" type="text">
+        <mat-error *ngIf="formGroup.get('username')?.invalid">Nombre de usuario es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password" type="password">
+        <mat-error *ngIf="formGroup.get('password')?.invalid">Contraseña es requerida</mat-error>
+      </mat-form-field>
+
+      <h4>Datos de usuario</h4>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name" type="text">
+        <mat-error *ngIf="formGroup.get('name')?.invalid">Nombre es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Apellido del usuario</mat-label>
+        <input matInput formControlName="lastName" type="text">
+        <mat-error *ngIf="formGroup.get('lastName')?.invalid">Es necesario incluir su apellido</mat-error>
+      </mat-form-field>
+
+      <h4>Datos de contacto</h4>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput formControlName="email" type="email">
+        <mat-error *ngIf="formGroup.get('email')?.invalid">Correo electrónico es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Número de Teléfono</mat-label>
+        <input matInput formControlName="phone" type="tel">
+        <mat-error *ngIf="formGroup.get('phone')?.invalid">Número de teléfono es requerido</mat-error>
+      </mat-form-field>
+
+      <h4>Estatus y rol</h4>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Estatus</mat-label>
+        <select matNativeControl formControlName="status">
+          <option value="" disabled>Seleccione un estatus</option>
+          <option [value]="true">Activo</option>
+          <option [value]="false">Inactivo</option>
+        </select>
+        <mat-error *ngIf="formGroup.get('status')?.invalid">Estatus es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Rol</mat-label>
+        <input matInput formControlName="role" type="text">
+        <mat-error *ngIf="formGroup.get('role')?.invalid">Rol es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-dialog-actions>
+        <button mat-raised-button [disabled]="formGroup.invalid" (click)="save()">Guardar</button>
+        <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</mat-dialog-content>
