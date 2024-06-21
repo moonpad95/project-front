@@ -1,0 +1,46 @@
+.container
+  display: grid
+  grid-template-columns: 2fr 1fr
+  gap: 10vh
+  padding: 16px
+
+.product-list
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+  gap: 16px
+  overflow-y: auto  // Permitimos que la lista de productos pueda desplazarse si es necesario
+
+
+.product-card
+  max-width: 300px
+  margin: auto
+
+.product-details
+  padding: 5vh
+  border: 1px solid #3c38ff
+  background-color: #02006b
+  color: #f0f0f0
+  border-radius: 8px
+  overflow-y: auto  // Permitimos que la lista de productos pueda desplazarse si es necesario
+  
+img
+  width: 90%
+
+button
+  padding: 0.5vh
+  width: 100%
+  text-align: center
+  background-color: #0b42f7
+  color: #fff
+
+.product-card 
+  max-width: 300px
+  margin: auto
+
+@media (max-width: 768px)
+  .container
+    grid-template-columns: 1fr
+  .product-details
+    margin-top: 16px
+  .product-list
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))

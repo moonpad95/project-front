@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="product-list">
+      <mat-card *ngFor="let product of productList.data" class="product-card" (click)="selectProduct(product)">
+        <mat-card-header>
+          <mat-card-title>{{ product.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img src="https://cdn-icons-png.flaticon.com/512/1822/1822045.png" alt="">
+          <p><strong>Articulo: </strong>{{product.name}}</p>
+          <p><strong>Precio: </strong>{{ product.price | currency }}</p>
+          <p><strong>Descripcion: </strong>{{ product.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Agregar al carrito</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="product-details" *ngIf="selectedProduct">
+      <h2>Detalles del Producto</h2>
+      <p><strong>Nombre: </strong>{{ selectedProduct.name }}</p>
+      <p><strong>Precio: </strong>{{ selectedProduct.price | currency }}</p>
+      <p><strong>Descripción: </strong>{{ selectedProduct.description }}</p>
+      <p><strong>Estado: </strong>{{ selectedProduct.status }}</p>
+    </div>
+  </div>
+  

@@ -15,7 +15,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -23,6 +23,7 @@ import { ProductFormComponent } from './view/product/product-form/product-form.c
 import { UsersComponent } from './view/users/users.component';
 import { UsersListComponent } from './view/users-list/users-list.component';
 import { LoginComponent } from './view/login/login.component';
+import { SalesListComponent } from './view/product/sales-list/sales-list.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { LoginComponent } from './view/login/login.component';
     UsersComponent,
     UsersListComponent,
     LoginComponent,
+    SalesListComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,7 @@ MatFormFieldModule,
 MatTableModule,
 MatDialogModule,
 ReactiveFormsModule,
+MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

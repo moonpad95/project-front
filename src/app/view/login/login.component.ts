@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit {
     const loginData = this.loginForm.value;
     this.authService.login(loginData).subscribe(
       (response) => {
-        Swal.fire('Log correcto', `Bienvenido, su Token es: ${response.token}`, 'success');
+        Swal.fire('Log correcto', `Bienvenido ${loginData.username} `, 'success');
+        console.log('Su token es: ', response.token)
         this.router.navigate(['/']); // Navigate to dashboard or home page after successful login
       },
       (error) => {
